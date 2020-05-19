@@ -12,8 +12,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
-
+    flex-wrap: wrap;
+    position: relative;
 
     @media only screen and (max-width: $bp-smallest) {
         order: 1;
@@ -66,6 +66,44 @@
         height: 2rem;
         width: 2rem;
         fill: var(--color-grey-dark-2);
+    }
+
+    &__suggestions {
+        visibility: hidden;
+        padding: 1rem;
+        background-color: #fff;
+        width: 100%;
+        position: absolute;
+        top:100%;
+
+        &-text {
+            font-size: 80%;
+            color:var(--color-grey-light-4);
+            margin-bottom: 2rem;;
+        }
+
+        &-list {
+            color:var(--color-grey-dark-3);
+            list-style-type: none;
+            font-size: 1;
+
+            &-item {
+                cursor: pointer;
+                transition: padding .2s, background-color .2s;
+            }
+
+            &-item:hover {
+                padding-left: 1.5rem;
+                background-color: var(--color-grey-light-3);
+            }
+        }
+    }
+
+    /////////////////////       N O T   W O R K I N G !!!
+    &__input:focus {
+        .search__suggestions {
+            visibility: visible;
+        }
     }
 }
 
@@ -148,7 +186,7 @@
 
            @media only screen and (max-width: $bp-medium) {
             margin: 0;
-        }
+            }
         }
     }
 
